@@ -8,7 +8,7 @@ RUN  apk add nginx
 RUN  apk add openrc --no-cache
 RUN  apk add vim
 
-#nginx config nginx -t
+#nginx config nginx
 RUN  mkdir -p /run/nginx
 RUN  adduser -D -g 'www' www
 RUN  mkdir /www

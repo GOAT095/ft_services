@@ -9,14 +9,12 @@
 
 
 mysql -u root < create_tables.sql
-mysql -u root -e "CREATE DATABASE wordpress;"
-mysql -u root -e "CREATE USER 'pma'@'localhost' IDENTIFIED BY '123'"
-mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'pma'@'localhost'"
-mysql -u root -e "CREATE USER 'pma'@'%' IDENTIFIED BY '123'"
-mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'pma'@'%'"
+mysql -u root -e "CREATE DATABASE wordpress"
+mysql -u root -e "CREATE USER 'admin'@'localhost' IDENTIFIED BY '123'"
+mysql -u root -e "CREATE USER 'admin'@'%' IDENTIFIED BY '123'"
+mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost'"
+mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%'"
 mysql -u root -e "FLUSH PRIVILEGES"
-
-
 #mysql -u root -e "GRANT ALL PRIVILEGES ON wordpress.* TO 'pma'@'localhost' IDENTIFIED BY '123';"
 #mysql -u root -e "FLUSH PRIVILEGES;"
 

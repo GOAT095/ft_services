@@ -40,5 +40,5 @@ kubectl apply -f ./srcs/wordpress.yaml
 # kubectl apply -f mysql-deplsvc.yaml
 # kubectl apply -f wordpress-deplsvc.yaml
 # kubectl apply -f phpmyadmin-deplsvc.yaml
-
+minikube dashboard &
 #kubectl get pods
