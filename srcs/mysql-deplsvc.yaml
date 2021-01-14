@@ -1,3 +1,4 @@
+---
 kind: Service
 apiVersion: v1
 metadata:
@@ -8,7 +9,6 @@ spec:
   ports:
     -  port: 3306
        targetPort: 3306
-  type: ClusterIP
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -21,7 +21,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 2Gi
+      storage: 1Gi
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: mysql
+        image: local-mysql
         imagePullPolicy: Never
         ports:
           - containerPort: 3306

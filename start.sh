@@ -1,44 +1,30 @@
-
-# Minikube start
-#minikube start
 minikube delete
 minikube start
 eval $(minikube -p minikube docker-env)
 
-#docker shit
-docker build -t mynginx ./srcs/nginx/
-docker build -t mysql ./srcs/mysql/
-docker build -t myphp ./srcs/phpmyadmin/
-docker build -t myword ./srcs/wordpress/
+#docker build -t local-nginx srcs/Nginx/
+docker build -t local-mysql srcs/MySQL/
+docker build -t local-wordpress srcs/WordPress/
+#docker build -t local-phpmyadmin srcs/phpMyAdmin/
+# docker build -t local-influxdb srcs/InfluxDB
+# docker build -it local-grafana srcs/Grafana
 
-#MetalLB Installation
-
+# 1 - MetalLB Installation
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.5/manifests/namespace.yaml
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.5/manifests/metallb.yaml
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
 
-#
+
 minikubeip=$(minikube ip)
-sed -i '' "s/192.168.99.*/$minikubeip-$minikubeip/g" ./srcs/metallb.yaml
+sed -i '' "s/192.168.99.*/$minikubeip-$minikubeip/g" ./srcs/metallb-configmap.yaml
 
-kubectl apply -f ./srcs/metallb.yaml
+kubectl apply -f srcs/metallb-configmap.yaml
+# 2 - Nginx / MySQL / Wordpress
 
-#Nginx / MySQL / Wordpress
+#kubectl apply -f srcs/nginx-deplsvc.yaml
+kubectl apply -f srcs/mysql-deplsvc.yaml
+kubectl apply -f srcs/wordpress-deplsvc.yaml
+#kubectl apply -f srcs/phpmyadmin-deplsvc.yaml
 
-# Don't forget to give mySQL 'root' privileges to be able to connect with WordPress
-# mysql -u root -p 
-# -> mysql> GRANT ALL PRIVILEGES ON mysql.* to 'root'@'localhost';
-# -> mysql> GRANT ALL PRIVILEGES ON wordpress.* to 'root'@'localhost';
-
-
-
-kubectl apply -f ./srcs/nginx.yaml
-kubectl apply -f ./srcs/mysql.yaml
-kubectl apply -f ./srcs/phpmyadmin.yaml
-kubectl apply -f ./srcs/wordpress.yaml
-# kubectl apply -f mysql-secret.yaml 
-# kubectl apply -f mysql-deplsvc.yaml
-# kubectl apply -f wordpress-deplsvc.yaml
-# kubectl apply -f phpmyadmin-deplsvc.yaml
-minikube dashboard &
-#kubectl get pods
+kubectl get pods
+minikube dashboard

@@ -1,3 +1,4 @@
+---
 kind: Service
 apiVersion: v1
 metadata:
@@ -24,8 +25,8 @@ spec:
         app: wordpress
     spec:
       containers:
-        - name: myword
-          image: myword
+        - name: wordpress
+          image: local-wordpress
           imagePullPolicy: Never
           ports:
             - containerPort: 5050
