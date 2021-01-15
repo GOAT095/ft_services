@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.11
 
 RUN apk add sudo
 RUN apk add openrc --no-cache
@@ -17,7 +17,7 @@ RUN mkdir -p /etc/telegraf
 COPY telegraf.conf /etc/telegraf/telegraf.conf
 
 COPY mariadb-server.cnf /etc/my.cnf.d
-#COPY wp_database.sql /
+COPY wp_database.sql /
 COPY pma_tables.sql /
 COPY mysql-script.sh /
 RUN sudo chmod +x /mysql-script.sh
