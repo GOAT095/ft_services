@@ -1,4 +1,4 @@
-FROM alpine:3.11
+FROM alpine:3.12
 
 RUN apk add sudo
 RUN apk add openrc --no-cache
@@ -6,8 +6,8 @@ RUN apk update
 RUN apk add mariadb mariadb-common mariadb-client
 
 # Process Manager
-RUN apk add --no-cache supervisor
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+#RUN apk add --no-cache supervisor
+#COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 ADD https://dl.influxdata.com/telegraf/releases/telegraf-1.17.0_linux_amd64.tar.gz /
 RUN tar xf telegraf-1.17.0_linux_amd64.tar.gz

@@ -1,4 +1,4 @@
-FROM alpine:3.11
+FROM alpine:3.12
 COPY srcs/install.sh /
 RUN sh install.sh
 COPY srcs/default.conf /etc/nginx/conf.d/default.conf

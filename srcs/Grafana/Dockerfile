@@ -1,4 +1,4 @@
-FROM alpine:3.11
+FROM alpine:3.12
 
 RUN apk add sudo
 RUN apk add openrc --no-cache
@@ -19,7 +19,7 @@ RUN rm telegraf-1.17.0_linux_amd64.tar.gz
 
 RUN mkdir -p /etc/telegraf
 COPY telegraf.conf /etc/telegraf/telegraf.conf
-
+COPY grafana-script.sh /
 RUN sudo chmod +x /grafana-script.sh
 
 EXPOSE 3000

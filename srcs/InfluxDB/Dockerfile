@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.12
 
 RUN apk add sudo
 RUN apk add openrc --no-cache
@@ -7,8 +7,8 @@ RUN apk add libc6-compat
 RUN apk add influxdb
 
 # Process Manager
-RUN apk add --no-cache supervisor
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+# RUN apk add --no-cache supervisor
+# COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 ADD https://dl.influxdata.com/influxdb/releases/influxdb2-2.0.3_linux_amd64.tar.gz /
 RUN tar xvfz influxdb2-2.0.3_linux_amd64.tar.gz
@@ -32,3 +32,5 @@ RUN sudo chmod +x /influxdb-script.sh
 EXPOSE 8086
 
 ENTRYPOINT ["sh", "/influxdb-script.sh"]
+
+#to check curl -sL -I localhost:8086/ping
