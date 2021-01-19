@@ -14,8 +14,6 @@ mysql -u root -e "EXIT;"
 mariadb < wp_database.sql # Tables for WordPress
 mariadb < pma_tables.sql # Tables for phpMyAdmin
 
-rc-service mariadb stop
-
-/usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
+/telegraf-1.17.0/usr/bin/telegraf --config /etc/telegraf/telegraf.conf &
 
 tail -F /dev/null

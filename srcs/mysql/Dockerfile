@@ -3,7 +3,7 @@ FROM alpine:3.12
 RUN apk add sudo
 RUN apk add openrc --no-cache
 RUN apk update
-RUN apk add mariadb mariadb-common mariadb-client
+RUN apk add mariadb mariadb-common mariadb-client libc6-compat
 
 # Process Manager
 #RUN apk add --no-cache supervisor

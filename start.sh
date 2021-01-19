@@ -23,7 +23,7 @@ kubectl apply -f srcs/metallb-configmap.yaml
 # 2 - Nginx / MySQL / Wordpress
 
 #kubectl apply -f srcs/nginx-deplsvc.yaml
-#kubectl apply -f srcs/mysql-deplsvc.yaml+
+#kubectl apply -f srcs/mysql-deplsvc.yaml
 #kubectl apply -f srcs/wordpress-deplsvc.yaml
 #kubectl apply -f srcs/phpmyadmin-deplsvc.yaml
 kubectl apply -f srcs/influxdb-deplsvc.yaml
