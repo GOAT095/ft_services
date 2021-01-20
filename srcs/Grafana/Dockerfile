@@ -21,7 +21,7 @@ RUN mkdir -p /etc/telegraf
 COPY telegraf.conf /etc/telegraf/telegraf.conf
 COPY grafana-script.sh /
 RUN sudo chmod +x /grafana-script.sh
-
+COPY grafana.db /grafana-7.3.2/data/
 EXPOSE 3000
 
 ENTRYPOINT ["sh", "/grafana-script.sh"]
