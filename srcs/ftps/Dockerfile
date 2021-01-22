@@ -19,8 +19,6 @@ COPY srcs/telegraf.conf /etc/telegraf/telegraf.conf
 #install and config vsftpd
 RUN apk add vsftpd
 RUN adduser admin -D && echo "admin:123" |chpasswd
-RUN mkdir -p /home/admin/ftp/upload
-RUN chmod 550 /home/admin/ftp && chmod 750 /home/admin/ftp/upload && chown -R admin: /home/admin/ftp/
 COPY srcs/vsftpd.conf /etc/vsftpd/
 COPY srcs/vsftpd.pem /etc/ssl/
 COPY srcs/script.sh /
