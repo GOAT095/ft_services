@@ -6,8 +6,9 @@ docker build -t local-nginx srcs/Nginx/
 docker build -t local-mysql srcs/MySQL/
 docker build -t local-wordpress srcs/WordPress/
 docker build -t local-phpmyadmin srcs/phpMyAdmin/
- docker build -t local-influxdb srcs/InfluxDB
+docker build -t local-influxdb srcs/InfluxDB
 docker build -t local-grafana srcs/Grafana
+docker build -t local-ftps srcs/ftps
 
 # 1 - MetalLB Installation
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.5/manifests/namespace.yaml
@@ -28,6 +29,6 @@ kubectl apply -f srcs/wordpress-deplsvc.yaml
 kubectl apply -f srcs/phpmyadmin-deplsvc.yaml
 kubectl apply -f srcs/influxdb-deplsvc.yaml
 kubectl apply -f srcs/grafana-deplsvc.yaml
-
+kubectl apply -f srcs/ftps-deplsvc.yaml
 kubectl get pods
 minikube dashboard
