@@ -40,5 +40,4 @@ RUN chmod 777 /var/anassif/phpMyAdmin-5.0.4-all-languages/tmp/
 
 EXPOSE 5000
 
-# Open a shell
 ENTRYPOINT ["sh", "/phpmyadmin-script.sh"]
