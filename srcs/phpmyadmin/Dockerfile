@@ -22,6 +22,7 @@ RUN touch /run/nginx/nginx.pid
 #RUN apk add --no-cache supervisor
 #COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+#install telegraf
 ADD https://dl.influxdata.com/telegraf/releases/telegraf-1.17.0_linux_amd64.tar.gz /
 RUN tar xf telegraf-1.17.0_linux_amd64.tar.gz
 RUN rm telegraf-1.17.0_linux_amd64.tar.gz
