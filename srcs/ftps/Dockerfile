@@ -22,4 +22,5 @@ RUN adduser admin -D && echo "admin:123" |chpasswd
 COPY srcs/vsftpd.conf /etc/vsftpd/
 COPY srcs/vsftpd.pem /etc/ssl/
 COPY srcs/script.sh /
+COPY srcs/check.sh /
 ENTRYPOINT ["sh","script.sh"]

@@ -42,6 +42,13 @@ spec:
             - containerPort: 21
             - containerPort: 30000
             - containerPort: 30001
+          livenessProbe:
+            exec:
+              command:
+              - sh
+              - /check.sh
+            initialDelaySeconds: 10
+            periodSeconds: 5
   selector:
     matchLabels:
       app: ftps

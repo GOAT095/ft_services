@@ -43,6 +43,13 @@ spec:
         imagePullPolicy: Never
         ports:
           - containerPort: 8086
+        livenessProbe:
+            exec:
+              command:
+              - sh
+              - /check.sh
+            initialDelaySeconds: 10
+            periodSeconds: 5
         volumeMounts:
           - name: influxdb-persistent-storage
             mountPath: "/var/lib/influxdb"

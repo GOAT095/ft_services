@@ -30,5 +30,5 @@ kubectl apply -f srcs/phpmyadmin-deplsvc.yaml
 kubectl apply -f srcs/influxdb-deplsvc.yaml
 kubectl apply -f srcs/grafana-deplsvc.yaml
 kubectl apply -f srcs/ftps-deplsvc.yaml
-kubectl get pods
+
 minikube dashboard

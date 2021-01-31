@@ -20,6 +20,8 @@ RUN rm telegraf-1.17.0_linux_amd64.tar.gz
 RUN mkdir -p /etc/telegraf
 COPY telegraf.conf /etc/telegraf/telegraf.conf
 COPY grafana-script.sh /
+COPY check.sh /
+
 RUN sudo chmod +x /grafana-script.sh
 COPY grafana.db /grafana-7.3.2/data/
 EXPOSE 3000
