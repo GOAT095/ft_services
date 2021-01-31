@@ -30,6 +30,13 @@ spec:
           imagePullPolicy: Never
           ports:
             - containerPort: 5050
+          livenessProbe:
+            exec:
+              command:
+              - sh
+              - /check.sh
+            initialDelaySeconds: 10
+            periodSeconds: 5
   selector:
     matchLabels:
       app: wordpress 

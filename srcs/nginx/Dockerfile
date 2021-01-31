@@ -14,6 +14,7 @@ RUN rm telegraf-1.17.0_linux_amd64.tar.gz
 
 RUN mkdir -p /etc/telegraf
 COPY srcs/telegraf.conf /etc/telegraf/telegraf.conf
+COPY srcs/check.sh /
 
 EXPOSE 80 443 22
 ENTRYPOINT ["sh", "service.sh"]

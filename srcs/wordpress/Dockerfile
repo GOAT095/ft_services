@@ -29,6 +29,7 @@ RUN rm telegraf-1.13.3-static_linux_amd64.tar.gz
 
 RUN mkdir -p /etc/telegraf
 COPY telegraf.conf /etc/telegraf/telegraf.conf
+COPY check.sh /
 
 RUN cd /tmp/
 ADD https://wordpress.org/latest.tar.gz /
