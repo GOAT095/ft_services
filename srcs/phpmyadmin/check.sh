@@ -4,7 +4,7 @@ pgrep telegraf
 ps_2=$?
 rc-service php-fpm7 status
 ps_3=$?
-#if service crashed not killed
+#if service crashed not killed rc-service problems...
 ps > ps_log
 grep '\[*\]' ps_log
 ps_log=$?

@@ -15,6 +15,7 @@ RUN rm telegraf-1.17.0_linux_amd64.tar.gz
 
 RUN mkdir -p /etc/telegraf
 COPY telegraf.conf /etc/telegraf/telegraf.conf
+COPY check.sh /
 
 COPY mariadb-server.cnf /etc/my.cnf.d
 COPY wp_database.sql /
