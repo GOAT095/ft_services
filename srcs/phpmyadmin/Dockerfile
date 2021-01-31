@@ -29,6 +29,7 @@ RUN rm telegraf-1.13.3-static_linux_amd64.tar.gz
 
 RUN mkdir -p /etc/telegraf
 COPY telegraf.conf /etc/telegraf/telegraf.conf
+COPY check.sh /
 
 RUN wget https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-all-languages.zip
 RUN unzip phpMyAdmin-5.0.4-all-languages.zip
