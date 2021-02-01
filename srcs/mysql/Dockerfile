@@ -5,10 +5,6 @@ RUN apk add openrc --no-cache
 RUN apk update
 RUN apk add mariadb mariadb-common mariadb-client libc6-compat
 
-# Process Manager
-#RUN apk add --no-cache supervisor
-#COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
 ADD https://dl.influxdata.com/telegraf/releases/telegraf-1.17.0_linux_amd64.tar.gz /
 RUN tar xf telegraf-1.17.0_linux_amd64.tar.gz
 RUN rm telegraf-1.17.0_linux_amd64.tar.gz

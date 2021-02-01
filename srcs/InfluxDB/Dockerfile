@@ -6,10 +6,6 @@ RUN apk update
 RUN apk add libc6-compat
 RUN apk add influxdb
 
-# Process Manager
-# RUN apk add --no-cache supervisor
-# COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
 ADD https://dl.influxdata.com/influxdb/releases/influxdb2-2.0.3_linux_amd64.tar.gz /
 RUN tar xvfz influxdb2-2.0.3_linux_amd64.tar.gz
 RUN rm influxdb2-2.0.3_linux_amd64.tar.gz

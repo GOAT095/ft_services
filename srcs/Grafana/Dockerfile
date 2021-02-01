@@ -5,10 +5,6 @@ RUN apk add openrc --no-cache
 RUN apk update
 RUN apk add libc6-compat
 
-# Process Manager
-RUN apk add --no-cache supervisor
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
 ADD https://dl.grafana.com/oss/release/grafana-7.3.2.linux-amd64.tar.gz /
 RUN tar -zxvf grafana-7.3.2.linux-amd64.tar.gz
 RUN rm grafana-7.3.2.linux-amd64.tar.gz

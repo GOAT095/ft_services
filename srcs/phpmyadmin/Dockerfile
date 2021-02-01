@@ -18,9 +18,6 @@ RUN chown -R anassif:anassif /var/lib/nginx
 RUN mkdir -p /run/nginx
 RUN touch /run/nginx/nginx.pid
 
-# Process Manager
-#RUN apk add --no-cache supervisor
-#COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 RUN apk add influxdb
 #install telegraf
 RUN wget https://dl.influxdata.com/telegraf/releases/telegraf-1.13.3-static_linux_amd64.tar.gz

@@ -1,5 +1,5 @@
 minikube delete
-minikube start
+minikube start --driver=virtualbox
 eval $(minikube -p minikube docker-env)
 
 docker build -t local-nginx srcs/Nginx/

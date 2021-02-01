@@ -12,10 +12,6 @@ RUN rm telegraf-1.17.0_linux_amd64.tar.gz
 RUN mkdir -p /etc/telegraf
 COPY srcs/telegraf.conf /etc/telegraf/telegraf.conf
 
-#instal supervisor
-#RUN apk add --no-cache supervisor
-#COPY srcs/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
 #install and config vsftpd
 RUN apk add vsftpd
 RUN adduser admin -D && echo "admin:123" |chpasswd
