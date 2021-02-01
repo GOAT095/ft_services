@@ -1,6 +1,6 @@
 openrc reboot
 /etc/init.d/mariadb setup
-sudo pkill mariadb
+#sudo pkill mariadb
 rc-service mariadb start
 
 # Use '%' to allow the user to connect from any IP address.
