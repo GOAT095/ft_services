@@ -1,3 +1,4 @@
+minikube config set memory 3072
 minikube delete
 minikube start --driver=virtualbox
 eval $(minikube -p minikube docker-env)
