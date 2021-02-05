@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
         - name: grafana
-          image: local-grafana
+          image: grafana
           imagePullPolicy: Never
           ports:
             - containerPort: 3000

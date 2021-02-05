@@ -3,13 +3,13 @@ minikube delete
 minikube start --driver=virtualbox
 eval $(minikube -p minikube docker-env)
 
-docker build -t local-nginx srcs/Nginx/
-docker build -t local-mysql srcs/MySQL/
-docker build -t local-wordpress srcs/WordPress/
-docker build -t local-phpmyadmin srcs/phpMyAdmin/
-docker build -t local-influxdb srcs/InfluxDB
-docker build -t local-grafana srcs/Grafana
-docker build -t local-ftps srcs/ftps
+docker build -t nginx srcs/Nginx/
+docker build -t mysql srcs/MySQL/
+docker build -t wordpress srcs/WordPress/
+docker build -t phpmyadmin srcs/phpMyAdmin/
+docker build -t influxdb srcs/InfluxDB
+docker build -t grafana srcs/Grafana
+docker build -t ftps srcs/ftps
 
 # 1 - MetalLB Installation
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.5/manifests/namespace.yaml
